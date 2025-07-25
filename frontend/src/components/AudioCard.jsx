@@ -41,7 +41,7 @@ const AudioCard = ({ file }) => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = `http://localhost:5000/api/files/stream/${file.id}`;
+    link.href = `https://google-drive-media-app-1.onrender.com/api/files/stream/${file.id}`;
     link.download = file.name;
     link.click();
   };
@@ -57,7 +57,7 @@ const AudioCard = ({ file }) => {
   return (
     <div className="w-full p-3 bg-white rounded shadow">
       <p className="text-blue-800 font-semibold mb-2">{file.name}</p>
-      <audio ref={audioRef} src={`http://localhost:5000/api/files/stream/${file.id}`} preload="metadata" />
+      <audio ref={audioRef} src={`https://google-drive-media-app-1.onrender.com/api/files/stream/${file.id}`} preload="metadata" />
 
       <div className="flex flex-col gap-2 mt-2">
         {/* Play / Pause and Download */}
