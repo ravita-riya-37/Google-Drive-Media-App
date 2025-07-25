@@ -134,7 +134,7 @@ const MediaViewer = () => {
             >
               {file.mimeType.startsWith("image/") && file.previewUrl ? (
                 <img
-                  src={`http://localhost:5000/api/files/stream/${file.id}`}
+                  src={`https://google-drive-media-app-1.onrender.com/api/files/stream/${file.id}`}
                   alt={file.name}
                   className="w-full h-30 object-contain rounded-lg"
                 />
