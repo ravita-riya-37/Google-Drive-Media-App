@@ -6,7 +6,8 @@ const drive = google.drive({ version: "v3", auth });
 // GET: List media files from shared Drive folder
 const getMediaFiles = async (req, res) => {
   try {
-    const folderId = "1r_H4wEa3a7kCExoODjwbkYZenxbtRd07"; // Replace with your folder ID
+   
+const folderId = req.query.folderId ; // fallback to default
 
     const response = await drive.files.list({
   q: `'${folderId}' in parents and trashed = false`,
@@ -28,6 +29,10 @@ const getMediaFiles = async (req, res) => {
     res.status(200).json(files);
   } catch (error) {
     console.error("Failed to fetch files:", error.message);
+    if (error.response && error.response.status === 403) {
+  setError("❌ Folder is not public. Please make it public first.");
+}
+
     res.status(500).json({ error: "Failed to fetch files" });
   }
 };

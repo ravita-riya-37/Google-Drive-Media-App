@@ -1,11 +1,13 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MediaViewer from "./components/mediaviewer";
 
 const App = () => {
   return (
-    <div>
-      <MediaViewer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MediaViewer />} />
+      </Routes>
+    </Router>
   );
 };
 
