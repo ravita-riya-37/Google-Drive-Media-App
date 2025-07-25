@@ -38,7 +38,7 @@ const MediaViewer = () => {
   const fetchFiles = async (id) => {
     try {
       setError("");
-      const res = await axios.get(`http://localhost:5000/api/files?folderId=${id}`);
+      const res = await axios.get(`https://google-drive-media-app-1.onrender.com/api/files?folderId=${id}`);
       setFiles(res.data);
     } catch (error) {
       console.error("Failed to fetch files:", error);
